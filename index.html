@@ -842,30 +842,8 @@ let chalFriendId=null, chalAlbumId=null;
 const CHAL_TIME=20;
 const ALBUM_COLORS=['#1a1a2e','#16213e','#0f3460','#1b4332','#2d1b69','#3d0000','#1a2744','#2c2c54','#0d2137','#1e3a2f'];
 const CAT_COLORS=['#4fffb0','#ff4f6b','#4f9fff','#ff9f4f','#b04fff','#fff04f','#4ffff0','#ff4fd4'];
-const EMOJIS=['📚','🧪','🌍','📐','🎨','💻','🎵','🏛️','🔬','📖','⚗️','🧬','💡','🌱'];
+const EMOJIS=['📚','🧪','🌍','📐','🎨','💻','🎵','🏛️','🔬','📖','⚗️','🧬','💡','🌱','✨'];
 const AVATAR_COLORS=['#2d1b69','#0f3460','#1b4332','#3d0000','#2c2c54','#1a2744','#16213e','#3d2600','#0d2137','#1e3a2f'];
-
-// ══ BIRTHDAY 🎂 ══════════════════════════════════════════════════════════════
-let _bdCount=0,_bdTimer=null;
-function _bdTap(){
-  clearTimeout(_bdTimer);
-  _bdCount++;
-  if(_bdCount>=3){_bdCount=0;showBirthday();return}
-  _bdTimer=setTimeout(()=>_bdCount=0,2500);
-}
-function showBirthday(){
-  const ov=document.getElementById('birthdayOverlay');
-  ov.style.display='flex';
-  const c=document.getElementById('bdConfetti');
-  c.innerHTML='';
-  const emojis=['🎉','🎊','🎈','✨','🌟','💜','🎀','🍰'];
-  for(let i=0;i<40;i++){
-    const s=document.createElement('div');
-    s.textContent=emojis[Math.floor(Math.random()*emojis.length)];
-    s.style.cssText=`position:absolute;top:-30px;left:${Math.random()*100}%;font-size:${1+Math.random()*1.5}rem;animation:bdFall ${2+Math.random()*3}s ${Math.random()*2}s linear forwards`;
-    c.appendChild(s);
-  }
-}
 
 // ══ TOAST ════════════════════════════════════════════════════════════════════
 function toast(msg, type='info', duration=3000){
